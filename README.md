@@ -26,14 +26,14 @@ This application tracks Ethereum blocks using the Infura API. It allows users to
 
 ## Installation
 
-- **Frontend**:
-  - `cd fe`
-  - `npm install`
-  - `npm start`
 - **Backend**:
   - `cd be`
   - `npm install`
   - `npm run dev`
+- **Frontend**:
+  - `cd fe`
+  - `npm install`
+  - `npm start`
 
 ### Prerequisites
 

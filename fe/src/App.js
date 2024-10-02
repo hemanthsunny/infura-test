@@ -18,7 +18,7 @@ function App() {
   // Function to fetch blocks from the API
   const fetchBlocks = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/blocks'); // Adjust the URL if needed
+      const response = await axios.get('http://localhost:3001/blocks'); // Adjust the URL if needed
       const sortedBlocks = sortBlocks(response.data, sortField, sortOrder);
       setBlocks(sortedBlocks);
       setLoading(false);
@@ -49,7 +49,7 @@ function App() {
     fetchBlocks();
 
     // Set up WebSocket connection
-    const ws = new WebSocket('ws://localhost:3000');  // Adjust the WebSocket URL if needed
+    const ws = new WebSocket('ws://localhost:3001');  // Adjust the WebSocket URL if needed
 
     // Handle WebSocket message event
     ws.onmessage = (event) => {
@@ -91,7 +91,7 @@ function App() {
   const handleDeleteBlock = async (blockNumber) => {
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:3000/blocks/${blockNumber}`);
+      await axios.delete(`http://localhost:3001/blocks/${blockNumber}`);
       await fetchBlocks();
       setLoading(false);
     } catch (err) {
@@ -102,8 +102,10 @@ function App() {
   // Function to delete all blocks (both frontend and backend)
   const handleDeleteAll = async () => {
     try {
-      await axios.delete('http://localhost:3000/blocks');
+      setLoading(true);
+      await axios.delete('http://localhost:3001/blocks');
       await fetchBlocks();
+      setLoading(false);
     } catch (err) {
       console.error('Failed to delete all blocks:', err);
     }
