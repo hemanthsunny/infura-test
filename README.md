@@ -10,8 +10,6 @@ This application tracks Ethereum blocks using the Infura API. It allows users to
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
 - [Technical Choices](#technical-choices)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
